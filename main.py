@@ -1,7 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import Annotated
-from fastapi import Depends
 from contextlib import asynccontextmanager
 from database import create_tables, drop_tables
 @asynccontextmanager
