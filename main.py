@@ -1,10 +1,16 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
+class Task(BaseModel):
+    name: str
+    description: str| None
+
+@app.get("/tasks")
+async def get_tasks():
+    task = Task(name="Record a new video", description="Task 1")
     return {"message": "Hello World"}
 
 
