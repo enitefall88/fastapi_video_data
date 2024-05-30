@@ -4,16 +4,22 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
-class Task(BaseModel):
+class STaskAdd(BaseModel):
     name: str
-    description: str| None
+    description: str | None
 
-@app.get("/tasks")
-async def get_tasks():
-    task = Task(name="Record a new video", description="Task 1")
-    return {"message": "Hello World"}
+class STask(STaskAdd):
+    id: int
+
+@app.post("/tasks/")
+async def add_task(
+        task: STaskAdd,
+):
+    return {"ok": True}
+
+# @app.get("/tasks")
+# async def get_tasks():
+#     task = STask(name="Record a new video", description="Task 1")
+#     return {"data": task}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
