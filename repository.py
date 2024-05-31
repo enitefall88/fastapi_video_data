@@ -2,6 +2,7 @@ from sqlalchemy import select
 from database import new_session, TaskOrm
 from schemas import STaskAdd, STask
 
+
 class TaskRepository:
     @classmethod
     async def add_one(cls, data: STaskAdd) -> int:
