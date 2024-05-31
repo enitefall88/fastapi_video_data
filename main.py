@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from database import create_tables, drop_tables
 @asynccontextmanager
@@ -17,14 +16,8 @@ app = FastAPI(lifespan=lifespan)
 
 
 
-class STaskAdd(BaseModel):
-    name: str
-    description: str | None
 
-class STask(STaskAdd):
-    id: int
 
-tasks = []
 
 
 
