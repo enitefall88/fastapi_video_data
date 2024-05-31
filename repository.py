@@ -3,7 +3,7 @@ from main import STaskAdd
 
 class TaskRepository:
     @classmethod
-    async def add_task(cls, data: STaskAdd) -> int:
+    async def add_one(cls, data: STaskAdd) -> int:
         async with new_session() as session:
             task_dict = data.model_dump()
 
