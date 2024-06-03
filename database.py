@@ -6,7 +6,7 @@ engine = create_async_engine(
 )
 
 new_session = async_sessionmaker(engine, expire_on_commit=False)
-
+print(new_session)
 class Model(DeclarativeBase):
     pass
 class TaskOrm(Model):
